@@ -11,7 +11,7 @@
         <scene sceneID="ByD-xV-M62">
             <objects>
                 <tableViewController storyboardIdentifier="PhotosViewController" id="JET-TJ-BNd" customClass="PhotosViewController" customModule="SearchViewTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="rmc-aj-kMs">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rmc-aj-kMs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,7 +34,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="KPc-JK-ZBs" secondAttribute="height" multiplier="1:1" constant="1" id="Yl0-I1-jWp"/>
-                                                <constraint firstAttribute="height" constant="80" id="rrN-eO-UzS"/>
+                                                <constraint firstAttribute="height" priority="999" constant="80" id="rrN-eO-UzS"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>

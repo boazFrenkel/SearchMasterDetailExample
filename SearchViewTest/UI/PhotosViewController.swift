@@ -39,6 +39,11 @@ class PhotosViewController: UIViewController {
         
         photosViewModel?.onPhotosLoaded = { photos in
             //self.photosTable.reloadData()
+            //photosTable.alpha = 0
+           // UIView.animate(withDuration: 0.6) {
+            //    photosTable.alpha = 1.0
+            //        }
+            //photosTable.isHidden = false
             //guard let self = self else { return }
             //TODO: handle data
         }

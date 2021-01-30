@@ -23,7 +23,7 @@
                                 <color key="barTintColor" systemColor="systemGray5Color"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-8V-LgZ">
+                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-8V-LgZ">
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -40,7 +40,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.and.pencil.and.ellipsis.rtl" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KPc-JK-ZBs">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.and.pencil.and.ellipsis.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KPc-JK-ZBs">
                                                     <rect key="frame" x="15" y="8" width="73" height="70.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -71,6 +71,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZHy-e6-nAs">
+                                <rect key="frame" x="188.5" y="176" width="37" height="37"/>
+                                <color key="color" red="0.37613016370000002" green="0.21297624709999999" blue="0.77259790900000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="11Y-CZ-auP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,11 +85,14 @@
                             <constraint firstItem="4t3-8V-LgZ" firstAttribute="top" secondItem="fMU-fh-Zdr" secondAttribute="bottom" id="YtC-qK-k7u"/>
                             <constraint firstItem="11Y-CZ-auP" firstAttribute="bottom" secondItem="4t3-8V-LgZ" secondAttribute="bottom" id="bWt-FJ-wc5"/>
                             <constraint firstItem="fMU-fh-Zdr" firstAttribute="leading" secondItem="11Y-CZ-auP" secondAttribute="leading" id="bnC-lZ-AJQ"/>
+                            <constraint firstItem="ZHy-e6-nAs" firstAttribute="centerX" secondItem="Xa9-Mh-pDW" secondAttribute="centerX" id="nYs-Lu-WLx"/>
                             <constraint firstItem="fMU-fh-Zdr" firstAttribute="trailing" secondItem="11Y-CZ-auP" secondAttribute="trailing" id="qcF-hn-aN6"/>
+                            <constraint firstItem="ZHy-e6-nAs" firstAttribute="top" secondItem="fMU-fh-Zdr" secondAttribute="bottom" constant="32" id="uo8-HV-mJj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3H2-4N-f2P"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="ZHy-e6-nAs" id="EJM-d3-ppu"/>
                         <outlet property="photosTable" destination="4t3-8V-LgZ" id="lF5-oW-daG"/>
                         <outlet property="searchBar" destination="fMU-fh-Zdr" id="32j-aK-P7W"/>
                     </connections>

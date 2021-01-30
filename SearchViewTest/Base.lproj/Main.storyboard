@@ -7,60 +7,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Photos View Controller-->
         <scene sceneID="ByD-xV-M62">
             <objects>
-                <tableViewController id="JET-TJ-BNd" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rmc-aj-kMs">
+                <tableViewController storyboardIdentifier="PhotosViewController" id="JET-TJ-BNd" customClass="PhotosViewController" customModule="SearchViewTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="rmc-aj-kMs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchImageCell" rowHeight="189" id="zFF-E2-tEN">
-                                <rect key="frame" x="0.0" y="28" width="414" height="189"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchImageCell" rowHeight="88" id="zFF-E2-tEN">
+                                <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zFF-E2-tEN" id="a1z-vx-aUH">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="189"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-iz-sKu">
-                                            <rect key="frame" x="176" y="24" width="39.5" height="19.5"/>
+                                            <rect key="frame" x="100" y="8" width="39.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ab4-oF-goy" userLabel="imageContainer">
-                                            <rect key="frame" x="20" y="0.0" width="152" height="189"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart.pie" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KPc-JK-ZBs">
-                                                    <rect key="frame" x="0.0" y="0.5" width="152" height="151"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.and.pencil.and.ellipsis.rtl" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KPc-JK-ZBs">
+                                            <rect key="frame" x="15" y="8" width="73" height="70.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="KPc-JK-ZBs" firstAttribute="top" secondItem="Ab4-oF-goy" secondAttribute="top" id="3LA-S5-cT9"/>
-                                                <constraint firstAttribute="width" secondItem="KPc-JK-ZBs" secondAttribute="height" multiplier="1:1" id="3U3-ZB-aol"/>
-                                                <constraint firstItem="KPc-JK-ZBs" firstAttribute="leading" secondItem="Ab4-oF-goy" secondAttribute="leading" id="5cf-pa-flV"/>
-                                                <constraint firstAttribute="trailing" secondItem="KPc-JK-ZBs" secondAttribute="trailing" id="eoc-De-2HX"/>
-                                                <constraint firstAttribute="bottom" secondItem="KPc-JK-ZBs" secondAttribute="bottom" id="vdz-CM-BE6"/>
+                                                <constraint firstAttribute="width" secondItem="KPc-JK-ZBs" secondAttribute="height" multiplier="1:1" constant="1" id="Yl0-I1-jWp"/>
+                                                <constraint firstAttribute="height" constant="80" id="rrN-eO-UzS"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="22"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                        </view>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Ab4-oF-goy" firstAttribute="leading" secondItem="a1z-vx-aUH" secondAttribute="leadingMargin" id="5Q8-Te-lt3"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ab4-oF-goy" secondAttribute="bottom" id="Bge-hF-bZe"/>
-                                        <constraint firstItem="hMv-iz-sKu" firstAttribute="top" secondItem="Ab4-oF-goy" secondAttribute="top" constant="24" id="Dad-KV-cjp"/>
-                                        <constraint firstItem="Ab4-oF-goy" firstAttribute="top" secondItem="a1z-vx-aUH" secondAttribute="top" id="JmQ-dA-Tr0"/>
-                                        <constraint firstItem="hMv-iz-sKu" firstAttribute="leading" secondItem="Ab4-oF-goy" secondAttribute="trailing" constant="4" id="Qph-Vd-4BE"/>
+                                        <constraint firstAttribute="bottom" secondItem="KPc-JK-ZBs" secondAttribute="bottom" constant="8" id="27O-wb-dvz"/>
+                                        <constraint firstItem="hMv-iz-sKu" firstAttribute="leading" secondItem="KPc-JK-ZBs" secondAttribute="trailing" constant="12" id="93a-gU-7VD"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hMv-iz-sKu" secondAttribute="bottom" constant="16" id="EtO-jp-40n"/>
+                                        <constraint firstItem="KPc-JK-ZBs" firstAttribute="top" secondItem="a1z-vx-aUH" secondAttribute="top" constant="8" id="PST-P2-rKc"/>
+                                        <constraint firstItem="hMv-iz-sKu" firstAttribute="top" secondItem="KPc-JK-ZBs" secondAttribute="top" id="U7e-CJ-DZB"/>
+                                        <constraint firstItem="KPc-JK-ZBs" firstAttribute="leading" secondItem="a1z-vx-aUH" secondAttribute="leading" constant="15" id="V8b-T6-th0"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hMv-iz-sKu" secondAttribute="trailing" constant="16" id="WJp-JQ-ZyZ"/>
-                                        <constraint firstItem="hMv-iz-sKu" firstAttribute="leading" secondItem="a1z-vx-aUH" secondAttribute="leading" constant="176" id="X2Q-ky-JJE"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hMv-iz-sKu" secondAttribute="bottom" constant="16" id="ro2-pL-Cgf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -96,7 +90,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chart.pie" catalog="system" width="128" height="121"/>
+        <image name="rectangle.and.pencil.and.ellipsis.rtl" catalog="system" width="128" height="92"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

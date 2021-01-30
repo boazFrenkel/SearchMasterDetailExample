@@ -12,6 +12,7 @@
 		4C69915C25C456FC00D56725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69915A25C456FC00D56725 /* Main.storyboard */; };
 		4C69915E25C456FF00D56725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C69915D25C456FF00D56725 /* Assets.xcassets */; };
 		4C69916125C456FF00D56725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69915F25C456FF00D56725 /* LaunchScreen.storyboard */; };
+		4C69916F25C58D3300D56725 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69916E25C58D3300D56725 /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4C69915D25C456FF00D56725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C69916025C456FF00D56725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C69916225C456FF00D56725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C69916E25C58D3300D56725 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		4C69915325C456FC00D56725 /* SearchViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				4C69916D25C58CFE00D56725 /* UI */,
 				4C69915425C456FC00D56725 /* AppDelegate.swift */,
 				4C69915625C456FC00D56725 /* SceneDelegate.swift */,
 				4C69915A25C456FC00D56725 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				4C69916225C456FF00D56725 /* Info.plist */,
 			);
 			path = SearchViewTest;
+			sourceTree = "<group>";
+		};
+		4C69916D25C58CFE00D56725 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4C69916E25C58D3300D56725 /* PhotosViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C69916F25C58D3300D56725 /* PhotosViewController.swift in Sources */,
 				4C69915525C456FC00D56725 /* AppDelegate.swift in Sources */,
 				4C69915725C456FC00D56725 /* SceneDelegate.swift in Sources */,
 			);

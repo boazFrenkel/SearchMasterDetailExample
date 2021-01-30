@@ -7,56 +7,50 @@
 
 import UIKit
 
-class PhotosViewController: UITableViewController {
-    var resultSearchController = UISearchController()
-    let tableData = ["One"]//,"Two","Three","Twenty-One"]
+class PhotosViewController: UIViewController {
+    @IBOutlet weak var photosTable: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    let tableData = ["One","Two","Three","Twenty-One"]
     var filteredTableData = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Home Assignment"
+        title = "Home Assignment"
+        photosTable.delegate = self
+        photosTable.dataSource = self
+        let spinner = UIRefreshControl()
+        photosTable.addSubview(spinner)
         setupSearchBar()
-        tableView.reloadData()
+        photosTable.reloadData()
     }
     
     private func setupSearchBar() {
-        resultSearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            controller.obscuresBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
-            tableView.tableHeaderView = controller.searchBar
-            controller.automaticallyShowsCancelButton = false
-            controller.automaticallyShowsSearchResultsController = false
-            controller.hidesNavigationBarDuringPresentation = false
-            controller.searchBar.searchBarStyle = .prominent
-            controller.searchBar.searchTextField.backgroundColor = .white
-            
-            tableView.tableHeaderView?.backgroundColor = .white
-            controller.searchBar.isOpaque = false
-            controller.searchBar.isTranslucent = false
-            controller.searchBar.barTintColor = .lightGray
-            return controller
-        })()
+        searchBar.searchBarStyle = .prominent
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.barTintColor = .systemGray3
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+}
+
+extension PhotosViewController: UITableViewDataSource {
+     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if  (resultSearchController.isActive) {
-            return filteredTableData.count
-        } else {
-            return tableData.count
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchImageCell", for: indexPath)
         return cell
         
     }
+}
+
+extension PhotosViewController: UITableViewDelegate {
+    
 }
 
 extension PhotosViewController: UISearchResultsUpdating {

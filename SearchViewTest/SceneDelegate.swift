@@ -8,14 +8,14 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
+    private lazy var navigationController: UINavigationController = UINavigationController(rootViewController: compose())
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let _ = (scene as? UIWindowScene) else { return }
-        let navigation = UINavigationController(rootViewController: compose())
-        window?.rootViewController = navigation
+        window?.rootViewController = navigationController
     }
     
     private func compose() -> PhotosViewController {
@@ -24,8 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remotePhotosLoader = RemotePhotosLoader(url: remoteURL, httpClient: remoteClient)
         
         let photosViewController = PhotoListUIComposer.infoComposedWith(photosLoader: remotePhotosLoader)
+        photosViewController.selectedPhoto = {item in
+            let photoDetailsViewController = PhotoDetailsUIComposer.infoComposedWith(item: item)
+            self.navigationController.pushViewController(photoDetailsViewController, animated: true)
+        }
         return photosViewController
     }
-
+    
 }
 

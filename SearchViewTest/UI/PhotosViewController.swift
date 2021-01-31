@@ -14,11 +14,15 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var tableData: [PhotoItem] { return photosViewModel?.loadedFeed ?? [] }
     var photosViewModel: PhotosViewModel?
+    var selectedPhoto: ((PhotoItem) -> Void)?
     
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.photosListTitle
+        title = Constants.photosListTitle.capitalized
+        let backItem = UIBarButtonItem()
+        backItem.title = Constants.back.capitalized
+        navigationItem.backBarButtonItem = backItem
         photosTable.alpha = 0
         setupSearchBar()
         photosTable.delegate = self
@@ -52,7 +56,8 @@ class PhotosViewController: UIViewController {
         searchBar.searchBarStyle = .prominent
         searchBar.searchTextField.backgroundColor = .white
         searchBar.barTintColor = .systemGray3
-        searchBar.delegate = self    }
+        searchBar.delegate = self
+    }
     
 }
 
@@ -76,15 +81,18 @@ extension PhotosViewController: UITableViewDataSource {
 }
 
 extension PhotosViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = tableData[indexPath.row]
+        selectedPhoto?(model)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension PhotosViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = self.searchBar.text else { return }
         searchBar.resignFirstResponder()
         photosViewModel?.search(searchTerm)
     }
-
+    
 }

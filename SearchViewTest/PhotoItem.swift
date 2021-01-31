@@ -12,11 +12,11 @@ struct PhotoItem {
     let imageURL: URL
     let description: String?
     let likesNumber: Int
+    let user: User
     
     struct User {
         let fullName: String
         let userName: String
-        let description: String? = ""
         let thumbnailURL: URL
         let bio: String
     }

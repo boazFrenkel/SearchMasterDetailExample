@@ -12,15 +12,14 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var photosTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    lazy var tableData = [PhotoItem(thumbnailURL: URL(string: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMDQ1OTN8MHwxfHNlYXJjaHwxMHx8c2VhfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=200"
-)!, imageURL: URL(string: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMDQ1OTN8MHwxfHNlYXJjaHwxMHx8c2VhfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=200"
-)!, description: "wow !!!!!!!!!!",  likesNumber: 5)]//photosViewModel?.loadedFeed ?? []
+    var tableData: [PhotoItem] { return photosViewModel?.loadedFeed ?? [] }
     var photosViewModel: PhotosViewModel?
     
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.photosListTitle
+        photosTable.alpha = 0
         setupSearchBar()
         photosTable.delegate = self
         photosTable.dataSource = self
@@ -39,15 +38,13 @@ class PhotosViewController: UIViewController {
             }
         }
         
-        photosViewModel?.onPhotosLoaded = { photos in
-            //self.photosTable.reloadData()
-            //photosTable.alpha = 0
-           // UIView.animate(withDuration: 0.6) {
-            //    photosTable.alpha = 1.0
-            //        }
-
-            //guard let self = self else { return }
-            //TODO: handle data
+        photosViewModel?.onPhotosLoaded = {[weak self] photos in
+            guard let self = self else { return }
+            self.photosTable.reloadData()
+            self.photosTable.alpha = 0
+            UIView.animate(withDuration: 0.6) {
+                self.photosTable.alpha = 1.0
+            }
         }
     }
     
@@ -55,7 +52,7 @@ class PhotosViewController: UIViewController {
         searchBar.searchBarStyle = .prominent
         searchBar.searchTextField.backgroundColor = .white
         searchBar.barTintColor = .systemGray3
-    }
+        searchBar.delegate = self    }
     
 }
 
@@ -84,8 +81,10 @@ extension PhotosViewController: UITableViewDelegate {
 
 extension PhotosViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked() {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = self.searchBar.text else { return }
+        searchBar.resignFirstResponder()
         photosViewModel?.search(searchTerm)
     }
+
 }

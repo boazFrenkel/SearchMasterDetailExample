@@ -25,6 +25,15 @@ class RemotePhotosMapper {
         var imageURL: URL {
             return urls["regular"]!
         }
+        
+        var photoItem: PhotoItem {
+            PhotoItem(thumbnailURL: thumbnailURL, imageURL: imageURL, description: description, likesNumber: likesNumber, user: photoItemUser)
+        }
+        
+        private var photoItemUser: PhotoItem.User {
+            PhotoItem.User(fullName: user.fullName, userName: user.userName, thumbnailURL: user.thumbnailURL, bio: user.bio ?? "")
+        }
+        
         enum CodingKeys: String, CodingKey {
             case description = "alt_description"
             case likesNumber = "likes"
@@ -46,17 +55,10 @@ class RemotePhotosMapper {
             }
             
             var thumbnailURL: URL {
-                return profileImage["small"]!
+                return profileImage["large"]!
             }
         }
         
-        var photoItem: PhotoItem {
-            PhotoItem(thumbnailURL: thumbnailURL, imageURL: imageURL, description: description, likesNumber: likesNumber, user: photoItemUser)
-        }
-        
-        private var photoItemUser: PhotoItem.User {
-            PhotoItem.User(fullName: user.fullName, userName: user.userName, thumbnailURL: user.thumbnailURL, bio: user.bio ?? "")
-        }
     }
     
     static func map(data: Data, response: HTTPURLResponse) throws -> [PhotoItem] {

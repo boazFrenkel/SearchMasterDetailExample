@@ -12,7 +12,9 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var photosTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    lazy var tableData = photosViewModel?.loadedFeed ?? []
+    lazy var tableData = [PhotoItem(thumbnailURL: URL(string: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMDQ1OTN8MHwxfHNlYXJjaHwxMHx8c2VhfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=200"
+)!, imageURL: URL(string: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMDQ1OTN8MHwxfHNlYXJjaHwxMHx8c2VhfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=200"
+)!, description: "wow !!!!!!!!!!",  likesNumber: 5)]//photosViewModel?.loadedFeed ?? []
     var photosViewModel: PhotosViewModel?
     
     // MARK: LifeCycle
@@ -70,9 +72,9 @@ extension PhotosViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
         let model = tableData[indexPath.row]
         cell.descriptionLabel.text = model.description
+        cell.thumbnailImage.sd_imageTransition = .fade
         cell.thumbnailImage.sd_setImage(with: model.thumbnailURL)
         return cell
-        
     }
 }
 

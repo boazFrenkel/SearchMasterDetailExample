@@ -14,19 +14,11 @@ class PhotoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.thumbnailImage.alpha = 0
         thumbnailImage.image = nil
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        thumbnailImage.alpha = 0
         thumbnailImage.image = nil
-    }
-    
-    private func fadeIn() {
-        UIView.animate(withDuration: Constants.cellImageAnimationDuration) {
-            self.thumbnailImage.alpha = 1
-        }
     }
 }

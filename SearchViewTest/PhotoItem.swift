@@ -10,7 +10,7 @@ import Foundation
 struct PhotoItem {
     let thumbnailURL: URL
     let imageURL: URL
-    let description: String? = ""
+    let description: String?
     let likesNumber: Int
     
     struct User {

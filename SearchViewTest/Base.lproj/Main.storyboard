@@ -23,11 +23,11 @@
                                 <color key="barTintColor" systemColor="systemGray5Color"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-8V-LgZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-8V-LgZ">
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchImageCell" rowHeight="88" id="zFF-E2-tEN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoTableViewCell" rowHeight="88" id="zFF-E2-tEN" userLabel="PhotoTableViewCell" customClass="PhotoTableViewCell" customModule="SearchViewTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zFF-E2-tEN" id="a1z-vx-aUH">
@@ -68,6 +68,10 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hMv-iz-sKu" secondAttribute="trailing" constant="16" id="WJp-JQ-ZyZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="hMv-iz-sKu" id="kUy-Cp-ZUT"/>
+                                            <outlet property="thumbnailImage" destination="KPc-JK-ZBs" id="3pY-T7-cEM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

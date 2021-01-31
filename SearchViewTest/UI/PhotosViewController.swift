@@ -11,19 +11,18 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var photosTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    let tableData = ["One","Two","Three","Twenty-One"]
+    lazy var tableData = photosViewModel?.loadedFeed ?? []
     var photosViewModel: PhotosViewModel?
     
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home Assignment"
+        title = Constants.photosListTitle
         setupSearchBar()
         photosTable.delegate = self
         photosTable.dataSource = self
         photosTable.reloadData()
         bind()
-        photosViewModel?.loadPhotos()
     }
     
     //MARK: Private
@@ -68,7 +67,10 @@ extension PhotosViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchImageCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
+        let model = tableData[indexPath.row]
+        cell.descriptionLabel.text = model.description
+        //cell.thumbnailImage.image = imageLoader.loadImage(from: model.imageURL)
         return cell
         
     }

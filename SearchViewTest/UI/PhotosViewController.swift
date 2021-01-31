@@ -6,24 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
-protocol ImageDataLoader {
-    func loadImageData(from url: URL) -> UIImage?
-}
-struct PhotoImagesLoader: ImageDataLoader {
-    func loadImageData(from url: URL) -> UIImage? {
-        return UIImage(data: Data())
-    }
-    
-    
-}
 class PhotosViewController: UIViewController {
     @IBOutlet weak var photosTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     lazy var tableData = photosViewModel?.loadedFeed ?? []
     var photosViewModel: PhotosViewModel?
-    var imageLoader: PhotoImagesLoader?
     
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -80,7 +70,7 @@ extension PhotosViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
         let model = tableData[indexPath.row]
         cell.descriptionLabel.text = model.description
-        cell.thumbnailImage.image = imageLoader?.loadImageData(from: model.thumbnailURL)
+        cell.thumbnailImage.sd_setImage(with: model.thumbnailURL)
         return cell
         
     }

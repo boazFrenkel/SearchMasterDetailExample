@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KCQ-5i-YmA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hud-Nt-eDc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="search" translatesAutoresizingMaskIntoConstraints="NO" id="fMU-fh-Zdr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" systemColor="systemGray5Color"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-8V-LgZ">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoTableViewCell" rowHeight="88" id="zFF-E2-tEN" userLabel="PhotoTableViewCell" customClass="PhotoTableViewCell" customModule="SearchViewTest" customModuleProvider="target">
@@ -35,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-iz-sKu">
-                                                    <rect key="frame" x="100" y="8" width="39.5" height="19.5"/>
+                                                    <rect key="frame" x="100" y="16" width="39.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -45,10 +45,10 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KPc-JK-ZBs" secondAttribute="height" multiplier="1:1" constant="1" id="Yl0-I1-jWp"/>
-                                                        <constraint firstAttribute="height" priority="999" constant="80" id="rrN-eO-UzS"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="100" id="rrN-eO-UzS"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="50"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                             <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </userDefinedRuntimeAttribute>
@@ -63,7 +63,7 @@
                                                 <constraint firstItem="hMv-iz-sKu" firstAttribute="leading" secondItem="KPc-JK-ZBs" secondAttribute="trailing" constant="12" id="93a-gU-7VD"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hMv-iz-sKu" secondAttribute="bottom" constant="16" id="EtO-jp-40n"/>
                                                 <constraint firstItem="KPc-JK-ZBs" firstAttribute="top" secondItem="a1z-vx-aUH" secondAttribute="top" constant="8" id="PST-P2-rKc"/>
-                                                <constraint firstItem="hMv-iz-sKu" firstAttribute="top" secondItem="KPc-JK-ZBs" secondAttribute="top" id="U7e-CJ-DZB"/>
+                                                <constraint firstItem="hMv-iz-sKu" firstAttribute="top" secondItem="KPc-JK-ZBs" secondAttribute="top" constant="8" id="U7e-CJ-DZB"/>
                                                 <constraint firstItem="KPc-JK-ZBs" firstAttribute="leading" secondItem="a1z-vx-aUH" secondAttribute="leading" constant="15" id="V8b-T6-th0"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hMv-iz-sKu" secondAttribute="trailing" constant="16" id="WJp-JQ-ZyZ"/>
                                             </constraints>
@@ -76,7 +76,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZHy-e6-nAs">
-                                <rect key="frame" x="188.5" y="176" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="132" width="37" height="37"/>
                                 <color key="color" red="0.37613016370000002" green="0.21297624709999999" blue="0.77259790900000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
@@ -104,24 +104,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhU-7Q-TtA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1879.7101449275365" y="-473.4375"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="32d-aG-oU5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KCQ-5i-YmA" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UP0-1k-lDA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Hud-Nt-eDc" kind="relationship" relationship="rootViewController" id="fIz-pb-fSY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Goj-CB-3tE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="969.56521739130437" y="-473.4375"/>
         </scene>
     </scenes>
     <resources>

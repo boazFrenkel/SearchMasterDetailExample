@@ -9,4 +9,5 @@ import Foundation
 
 struct Constants {
     static let photosListTitle = "Home Assignment"
+    static let cellImageAnimationDuration = 0.35
 }

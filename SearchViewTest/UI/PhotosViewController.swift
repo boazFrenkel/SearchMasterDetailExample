@@ -7,12 +7,23 @@
 
 import UIKit
 
+protocol ImageDataLoader {
+    func loadImageData(from url: URL) -> UIImage?
+}
+struct PhotoImagesLoader: ImageDataLoader {
+    func loadImageData(from url: URL) -> UIImage? {
+        return UIImage(data: Data())
+    }
+    
+    
+}
 class PhotosViewController: UIViewController {
     @IBOutlet weak var photosTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     lazy var tableData = photosViewModel?.loadedFeed ?? []
     var photosViewModel: PhotosViewModel?
+    var imageLoader: PhotoImagesLoader?
     
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -42,7 +53,7 @@ class PhotosViewController: UIViewController {
            // UIView.animate(withDuration: 0.6) {
             //    photosTable.alpha = 1.0
             //        }
-            //photosTable.isHidden = false
+
             //guard let self = self else { return }
             //TODO: handle data
         }
@@ -53,7 +64,6 @@ class PhotosViewController: UIViewController {
         searchBar.searchTextField.backgroundColor = .white
         searchBar.barTintColor = .systemGray3
     }
-    
     
 }
 
@@ -70,7 +80,7 @@ extension PhotosViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
         let model = tableData[indexPath.row]
         cell.descriptionLabel.text = model.description
-        //cell.thumbnailImage.image = imageLoader.loadImage(from: model.imageURL)
+        cell.thumbnailImage.image = imageLoader?.loadImageData(from: model.thumbnailURL)
         return cell
         
     }

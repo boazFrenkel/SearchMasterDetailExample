@@ -20,18 +20,33 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.photosListTitle.capitalized
-        let backItem = UIBarButtonItem()
-        backItem.title = Constants.back.capitalized
-        navigationItem.backBarButtonItem = backItem
-        photosTable.alpha = 0
+        setupNavigationItem()
         setupSearchBar()
-        photosTable.delegate = self
-        photosTable.dataSource = self
-        photosTable.reloadData()
+        setupTable()
         bind()
     }
     
     //MARK: Private
+    private func setupNavigationItem() {
+        let backItem = UIBarButtonItem()
+        backItem.title = Constants.back.capitalized
+        navigationItem.backBarButtonItem = backItem
+    }
+    
+    private func setupTable() {
+        photosTable.alpha = 0
+        photosTable.delegate = self
+        photosTable.dataSource = self
+        photosTable.reloadData()
+    }
+    
+    private func setupSearchBar() {
+        searchBar.searchBarStyle = .prominent
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.barTintColor = .systemGray3
+        searchBar.delegate = self
+    }
+    
     private func bind() {
         photosViewModel?.onLoadingStateChange = { [weak self] isLoading in
             guard let self = self else { return }
@@ -50,13 +65,6 @@ class PhotosViewController: UIViewController {
                 self.photosTable.alpha = 1.0
             }
         }
-    }
-    
-    private func setupSearchBar() {
-        searchBar.searchBarStyle = .prominent
-        searchBar.searchTextField.backgroundColor = .white
-        searchBar.barTintColor = .systemGray3
-        searchBar.delegate = self
     }
     
 }

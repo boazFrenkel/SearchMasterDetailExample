@@ -14,11 +14,17 @@ class PhotoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        thumbnailImage.image = nil
+        setup()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        setup()
+    }
+    
+    private func setup() {
         thumbnailImage.image = nil
+        thumbnailImage.layer.borderColor = UIColor.black.cgColor
+        thumbnailImage.layer.borderWidth = 1
     }
 }

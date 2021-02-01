@@ -27,6 +27,7 @@ class PhotoDetailsViewController: UIViewController {
     
     private func setupOutlets() {
         guard let details = photoDetails else { return }
+        mainImageView.sd_imageTransition = .fade
         mainImageView.sd_setImage(with: details.imageURL, completed: nil)
         descriptionLabel.text = details.description
         userImageView.sd_setImage(with: details.user.thumbnailURL, completed: nil)

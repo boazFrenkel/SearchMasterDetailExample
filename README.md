@@ -1,2 +1,2 @@
 # SearchMasterDetailExample
-This is a small POC for a master detail with search
+This is an example for a master detail with search
